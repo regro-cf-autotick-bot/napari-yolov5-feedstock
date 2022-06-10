@@ -54,5 +54,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - conda-forge/napari
+    - goanpeca
+    - jaimergp
     - rdemets
