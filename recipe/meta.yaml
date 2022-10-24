@@ -1,5 +1,5 @@
 {% set name = "napari-yolov5" %}
-{% set version = "0.2.12" %}
+{% set version = "0.2.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-yolov5-{{ version }}.tar.gz
-  sha256: 4b44aacf5b351906009d6bb047178e53a2ba2ca8a083577b179816b0a08641f0
+  sha256: b6f266884447a4c59de2943d140690307bbf4c7a40fd5c3ec0cc997d3da43dbe
 
 build:
   noarch: python
@@ -20,6 +20,8 @@ requirements:
     - python >=3.7
   run:
     - connected-components-3d >=3.6.0
+    - flask
+    - imageio-ffmpeg  # pip check
     - magicgui <0.4.0
     - matplotlib-base >=3.2.2
     - napari
@@ -29,13 +31,17 @@ requirements:
     - pillow >=7.1.2
     - python >=3.7
     - pyyaml >=5.3.1
+    - qtpy
     - requests >=2.23.0
     - scipy >=1.4.1
     - seaborn >=0.11.2
     - tensorboard >=1.15.0
+    - tensorflow
     - pytorch >=1.9.0
+    - scikit-image
     - torchvision >=0.8.1
     - tqdm >=4.41.0
+    - wandb
 
 test:
   imports:
