@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-yolov5-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-yolov5-{{ version }}.tar.gz
   sha256: a01b55ac1573a678e2a68e5679f431313ade4cb5cfc8969abcbb78513fda930c
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - connected-components-3d >=3.6.0
     - flask
@@ -29,7 +29,7 @@ requirements:
     - numpy >=1.18.5
     - opencv >=4.1.2
     - pillow >=7.1.2
-    - python >=3.7
+    - python >={{ python_min }}
     - pyyaml >=5.3.1
     - qtpy
     - requests >=2.23.0
@@ -51,6 +51,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/rdemets/napari-yolov5
